@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/votes', function () {
+    \App\Vote::create([
+        'picked' => request()->picked,
+        'reason' => request()->reason,
+        'name' => request()->name,
+    ]);
+
+    return response()->json();
 });

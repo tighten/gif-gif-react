@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Vote::create([
-            'picked' => 'gif1',
+            'picked' => 'jif',
             'reason' => 'Peanut butter is amazing, haters',
             'name' => 'Samantha Geitz'
         ]);

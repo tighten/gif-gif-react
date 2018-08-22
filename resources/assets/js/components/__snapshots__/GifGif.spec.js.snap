@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifGif renders 1`] = `
+<GifGif
+  votes="[]"
+>
+  <div>
+    <div
+      className="bg-white rounded shadow text-grey-darker"
+    >
+      <div
+        className="py-8"
+      >
+        <h3
+          className="text-center"
+        >
+          How do you pronounce the word 
+          <span
+            className="font-light uppercase"
+          >
+            gif
+          </span>
+          ?
+        </h3>
+        <div
+          className="flex justify-center py-8"
+        >
+          <label
+            className="mx-4"
+            htmlFor="jif"
+          >
+            GIF
+          </label>
+          <input
+            checked={false}
+            className="mr-4"
+            id="jif"
+            onClick={[Function]}
+            type="radio"
+          />
+          <label
+            className="mx-4"
+            htmlFor="gif"
+          >
+            GIF
+          </label>
+          <input
+            checked={false}
+            id="gif"
+            onClick={[Function]}
+            type="radio"
+          />
+        </div>
+      </div>
+      <div
+        className="flex justify-center"
+      >
+        <div
+          className="w-3/4"
+        >
+          <input
+            className="input"
+            id="reason"
+            onChange={[Function]}
+            placeholder="Why do you think it should be pronounced that way?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="flex justify-center my-4"
+      >
+        <div
+          className="w-3/4"
+        >
+          <input
+            className="input"
+            id="name"
+            onChange={[Function]}
+            placeholder="What is your name?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="flex justify-center"
+      >
+        <button
+          className="button opacity-50 cursor-not-allowed"
+          disabled={true}
+          id="submit"
+          onClick={[Function]}
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <div
+      className="py-8"
+    >
+      <h4
+        className="text-grey-darker text-center"
+      >
+        User Responses:
+      </h4>
+      <ul />
+    </div>
+  </div>
+</GifGif>
+`;
+
+exports[`GifGif renders with props 1`] = `
+<GifGif
+  votes="[{\\"picked\\":\\"jif\\",\\"reason\\":\\"It is how you pronounce gin\\",\\"name\\":\\"Samantha\\"}]"
+>
+  <div>
+    <div
+      className="bg-white rounded shadow text-grey-darker"
+    >
+      <div
+        className="py-8"
+      >
+        <h3
+          className="text-center"
+        >
+          How do you pronounce the word 
+          <span
+            className="font-light uppercase"
+          >
+            gif
+          </span>
+          ?
+        </h3>
+        <div
+          className="flex justify-center py-8"
+        >
+          <label
+            className="mx-4"
+            htmlFor="jif"
+          >
+            GIF
+          </label>
+          <input
+            checked={false}
+            className="mr-4"
+            id="jif"
+            onClick={[Function]}
+            type="radio"
+          />
+          <label
+            className="mx-4"
+            htmlFor="gif"
+          >
+            GIF
+          </label>
+          <input
+            checked={false}
+            id="gif"
+            onClick={[Function]}
+            type="radio"
+          />
+        </div>
+      </div>
+      <div
+        className="flex justify-center"
+      >
+        <div
+          className="w-3/4"
+        >
+          <input
+            className="input"
+            id="reason"
+            onChange={[Function]}
+            placeholder="Why do you think it should be pronounced that way?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="flex justify-center my-4"
+      >
+        <div
+          className="w-3/4"
+        >
+          <input
+            className="input"
+            id="name"
+            onChange={[Function]}
+            placeholder="What is your name?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="flex justify-center"
+      >
+        <button
+          className="button opacity-50 cursor-not-allowed"
+          disabled={true}
+          id="submit"
+          onClick={[Function]}
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <div
+      className="py-8"
+    >
+      <h4
+        className="text-grey-darker text-center"
+      >
+        User Responses:
+      </h4>
+      <ul>
+        <li
+          className="py-4"
+          key="0"
+        >
+          <p>
+            <span
+              className="font-light uppercase"
+            >
+              gif
+            </span>
+             — 
+            It is how you pronounce gin
+          </p>
+          <p
+            className="text-sm mt-2"
+          >
+            Submitted by 
+            <span
+              className="uppercase"
+            >
+              Samantha
+            </span>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</GifGif>
+`;

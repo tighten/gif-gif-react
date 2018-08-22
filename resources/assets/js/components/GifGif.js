@@ -2,6 +2,46 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class GifGif extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            picked: '',
+            reason: '',
+            name: '',
+            votes: JSON.parse(props.votes),
+        }
+    }
+
+    addVote() {
+        const { picked, reason, name } = this.state;
+
+        axios.post('/api/votes', { picked, reason, name })
+            .then(() => {
+                this.setState({
+                    votes: this.state.votes.concat({ picked, reason, name }),
+                    picked: '',
+                    reason: '',
+                    name: '',
+                });
+            });
+    }
+
+    isValid() {
+        return ! this.state.picked || ! this.state.reason || ! this.state.name;
+    }
+
+    renderVotes() {
+        return this.state.votes.map((vote, i) => {
+            return (
+                <li className="py-4" key={i}>
+                    <p><span className="font-light uppercase">gif</span> — { vote.reason }</p>
+                    <p className="text-sm mt-2">Submitted by <span className="uppercase">{ vote.name }</span></p>
+                </li>
+            );
+        })
+    }
+
     render() {
         return (
             <div>
@@ -13,12 +53,20 @@ class GifGif extends Component {
                             <label htmlFor="jif" className="mx-4">
                                 GIF
                             </label>
-                            <input type="radio" id="jif" value="jif" name="pronunciation" className="mr-4" />
+
+                            <input type="radio" id="jif"
+                                   onClick={() =>{ this.setState({ picked: 'jif' })}}
+                                   checked={ this.state.picked === 'jif' }
+                                   className="mr-4" />
 
                             <label htmlFor="gif" className="mx-4">
                                 GIF
                             </label>
-                            <input type="radio" id="gif" value="gif" name="pronunciation" />
+
+                            <input type="radio"
+                                   id="gif"
+                                   onClick={() =>{ this.setState({ picked: 'gif' })}}
+                                   checked={ this.state.picked === 'gif' } />
                         </div>
                     </div>
 
@@ -27,6 +75,8 @@ class GifGif extends Component {
                             <input className="input"
                                    id="reason"
                                    type="text"
+                                   value={ this.state.reason }
+                                   onChange={ (e) => { this.setState({ reason: e.target.value })}}
                                    placeholder="Why do you think it should be pronounced that way?" />
                         </div>
                     </div>
@@ -36,14 +86,17 @@ class GifGif extends Component {
                             <input className="input"
                                    id="name"
                                    type="text"
+                                   value={ this.state.name }
+                                   onChange={ (e) => { this.setState({ name: e.target.value })}}
                                    placeholder="What is your name?" />
                         </div>
                     </div>
 
                     <div className="flex justify-center">
                         <button id="submit"
-                                onClick="add"
-                                className="button">
+                                onClick={() => { this.addVote() }}
+                                disabled={ this.isValid() }
+                                className={ `button ${ this.isValid() ? 'opacity-50 cursor-not-allowed' : ''}`}>
                             Submit
                         </button>
                     </div>
@@ -52,10 +105,7 @@ class GifGif extends Component {
                 <div className="py-8">
                     <h4 className="text-grey-darker text-center">User Responses:</h4>
                     <ul>
-                        <li className="py-4">
-                            <p><span className="font-light uppercase">gif</span> — </p>
-                            <p className="text-sm mt-2">Submitted by <span className="uppercase"> It is the way the creator of the format wanted!</span></p>
-                        </li>
+                        { this.renderVotes() }
                     </ul>
                 </div>
             </div>
@@ -65,6 +115,8 @@ class GifGif extends Component {
 
 export default GifGif;
 
-if (document.getElementById('gif-gif')) {
-    ReactDOM.render(<GifGif />, document.getElementById('gif-gif'));
+let el;
+
+if (el = document.getElementById('gif-gif')) {
+    ReactDOM.render(<GifGif { ...el.dataset} />, el);
 }
